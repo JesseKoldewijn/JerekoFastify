@@ -4,8 +4,13 @@ dotenv.config();
 
 import { type FastifyInstance } from "fastify";
 
-const routes = async (fastify: FastifyInstance, options) => {
-	fastify.get("/", async (request, reply) => {
+const routes = async (
+	fastify: FastifyInstance,
+	_options: {
+		[key: string]: any;
+	}
+) => {
+	fastify.get("/", async (_request, reply) => {
 		reply
 			.send({ hello: "world" })
 			.code(200)
