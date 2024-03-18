@@ -43,5 +43,11 @@ export const constructErrorResponse = ({
 			...context,
 		},
 	};
-	return errorResponse;
+	return {
+		code: status,
+		headers: {
+			"Content-Type": "application/problem+json",
+		},
+		body: errorResponse,
+	};
 };

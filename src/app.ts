@@ -2,9 +2,14 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 
-const routes = async (fastify, options) => {
+import { type FastifyInstance } from "fastify";
+
+const routes = async (fastify: FastifyInstance, options) => {
 	fastify.get("/", async (request, reply) => {
-		return { hello: "world" };
+		reply
+			.send({ hello: "world" })
+			.code(200)
+			.header("Content-Type", "application/json");
 	});
 };
 
