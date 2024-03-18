@@ -13,7 +13,7 @@ const app = Fastify({
 });
 
 // Register your application as a normal plugin.
-app.register(import("../dist/app.js"));
+app.register(import("../dist/server.js").then((m) => m.application));
 
 // Start listening.
 export default async (req, res) => {
